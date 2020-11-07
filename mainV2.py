@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 from jd_assistant import Assistant
 import random
+import datetime
 
 if __name__ == '__main__':
     """
@@ -16,7 +17,8 @@ if __name__ == '__main__':
     model_type = input("请输入购买类型(1.定时预约抢购 2.正常有货购买 3.正常定时购买)：")
     if model_type == '1':
         print("定时预约抢购...")
-        sku_id = input("请输入一个sku_id:")
+        # sku_id = input("请输入一个sku_id:")
+        sku_id = '100012043978'
         asst.print_item_info(sku_id)
         reserve_info = asst.get_reserve_info(sku_id)
         reserve_time = reserve_info.get("yueStime")
@@ -43,6 +45,7 @@ if __name__ == '__main__':
         sku_ids = input("请输入一个或多个sku_id:")
         area = input("请输入area_id:")
         asst.buy_item_in_stock(sku_ids=sku_ids, area=area, wait_all=False, stock_interval=5)
+
     elif model_type == '3':
         print("正常定时购买...")
         sku_ids = input("请输入一个或多个sku_id:")

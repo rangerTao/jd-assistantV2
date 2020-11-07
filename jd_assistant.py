@@ -1354,7 +1354,7 @@ class Assistant(object):
         :return:
         """
         items_dict = parse_sku_id(sku_ids=sku_ids)
-        logger.info('准备抢购商品:%s', list(items_dict.keys()))
+        logger.info('准备抢购商品:%s,数量：%s', list(items_dict.keys()),num)
 
         t = Timer(buy_time=buy_time)
         t.start()
