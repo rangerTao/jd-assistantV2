@@ -1335,6 +1335,7 @@ class Assistant(object):
                 time.sleep(interval)
         else:
             logger.info('执行结束，抢购%s失败！', sku_id)
+            self.messenger.send(text='jd-assistant 抢购失败', desp='sku_id：%s' % sku_id)
             return False
 
     def get_sys_para(self, sku_id):
