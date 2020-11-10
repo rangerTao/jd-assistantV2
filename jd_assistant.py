@@ -269,7 +269,10 @@ class Assistant(object):
         QRCode_file = 'QRcode.png'
         save_image(resp, QRCode_file)
         logger.info('二维码获取成功，请打开京东APP扫描')
-        open_image(QRCode_file)
+        if os.name == "nt":
+            open_image(QRCode_file)
+        else
+            os.system("echo " + resp + " | qrencode -t UTF8")
         return True
 
     def _get_QRcode_ticket(self):
